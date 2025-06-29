@@ -52,7 +52,28 @@ int main() {
     } else {
         cout << "Both cars have the same total cost." << endl; //if both cars have the same cost, print this message
     }
+    
+
+    /*A bank account starts out with $10000. Interest is compounded monthly at 6 percent per year (0.5 percent per month).
+    Every month, $500 is withdrawn to meet college expenses.
+    How long will it take for the account to be depleted?*/
+
+    double bankAccount = 10000.0; //initial bank account balance
+    double monthlyInterestRate = 0.005; //monthly interest rate (6% per year)
+    double monthlyWithdrawal = 500.0; //monthly withdrawal amount
+    int months = 0; //counter for the number of months
+    //loop to calculate the number of months until the bank account is depleted
+    while (bankAccount > 0) { //loop until the bank account balance is zero
+        bankAccount += bankAccount * monthlyInterestRate; //calculate the new balance after adding interest
+        bankAccount -= monthlyWithdrawal; //subtract the monthly withdrawal
+        months++; //increment the month counter
+    }
+    cout << "The bank account will be depleted after " << months << " months." << endl; //print the result
     return 0; //returning zero to indicate successful execution
+
+    // The program ends here, and the main function returns 0 to indicate successful execution.
+    
+    
    
 
 
