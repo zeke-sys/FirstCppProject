@@ -25,7 +25,36 @@ int main() {
     }
 
     cout << "It will take " << years << " years to double the investment." << endl; //print the result
+
+
+    //finding which car is better to buy based on purchase price and operating costs (fuel efficiency)
+    double carAPurchasePrice = 25000.0; //purchase price of car A
+    double carAFuelEfficiency = 50.0; //fuel efficiency of car A in miles per gallon
+    double carBPurchasePrice = 20000.0; //purchase price of car B
+    double carBFuelEfficiency = 30.0; //fuel efficiency of car B in miles per gallon
+    double milesDrivenPerYear = 15000.0; //average miles driven per year
+    double fuelPricePerGallon = 4.0; //price of fuel per gallon
+
+    //calculating the total cost of ownership for each car over a period of 5 years
+     double carAOperatingCost = (milesDrivenPerYear / carAFuelEfficiency) * fuelPricePerGallon; //annual operating cost of car A
+    double carBOperatingCost = (milesDrivenPerYear / carBFuelEfficiency) * fuelPricePerGallon; //annual operating cost of car B
+    double carATotalCost = carAPurchasePrice + (carAOperatingCost * 10); //total cost of car A over 10 years
+    double carBTotalCost = carBPurchasePrice + (carBOperatingCost * 10); //total cost of car B over 10 years  
+
+    cout << "Car A total cost over 10 years: $" << carATotalCost << endl; //print the total cost of car A
+    cout << "Car B total cost over 10 years: $" << carBTotalCost << endl; //print the total cost of car B
+
+    //comparing the total costs of both cars
+    if (carATotalCost < carBTotalCost) {
+        cout << "Car A is the better choice." << endl; //if car A is cheaper, print this message
+    } else if (carBTotalCost < carATotalCost) {
+        cout << "Car B is the better choice." << endl; //if car B is cheaper, print this message
+    } else {
+        cout << "Both cars have the same total cost." << endl; //if both cars have the same cost, print this message
+    }
     return 0; //returning zero to indicate successful execution
+   
+
 
 }
 
