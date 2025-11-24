@@ -21,7 +21,13 @@ int main() {
     getline(cin, lastName); // Read full line for last name
 
     // Construct initials string
-    string initials = string(1, toupper(firstName[0])) + string(1, toupper(middleName[0])) + string(1, toupper(lastName[0]));
+    string initials;
+    auto to_initial = [](const string &s) -> char {
+        return s.empty() ? '\0' : static_cast<char>(std::toupper(static_cast<unsigned char>(s[0])));
+    };
+    if (!firstName.empty()) initials += to_initial(firstName);
+    if (!middleName.empty()) initials += to_initial(middleName);
+    if (!lastName.empty()) initials += to_initial(lastName);
     // another way to write this would be with the substring function:
     // string initials = firstName.substr(0, 1) + middleName.substr(0, 1) + lastName.substr(0, 1);
     // but using toupper and string(1, ...) is more straightforward for initials
